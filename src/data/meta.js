@@ -3,8 +3,8 @@ export const CONFIG = {
     SHEETS_WEBAPP_URL: import.meta.env.VITE_SHEETS_WEBAPP_URL,
     PRODUCT_URL: "https://itcolor.kr/shop",
     COURSE_URL: "https://itcolor.kr/Experttrainingcourse",
-    INTRO_LOGO_PATH: "/brand/itcolor_logo.png",
-    LOGO_PATH: "/logo.png",
+    INTRO_LOGO_PATH: `${import.meta.env.BASE_URL}brand/itcolor_logo.png`,
+    LOGO_PATH: `${import.meta.env.BASE_URL}logo.png`,
 };
 
 export const LANGS = [
