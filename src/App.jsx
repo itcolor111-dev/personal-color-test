@@ -947,9 +947,11 @@ export default function App() {
                 {currentQ.answers.map((a, idx) => {
                   const showImage = currentQ.id <= 9; // ✅ 1~9만 이미지, 10~15는 텍스트만
                   const isQ5 = currentQ.id === 5;
+                  const base = import.meta.env.BASE_URL;
+
                   const imgSrc = isQ5
-                    ? `/q/${gender === "male" ? "m" : "f"}/q5_a${idx + 1}.jpg`
-                    : `/q/q${currentQ.id}_a${idx + 1}.jpg`;
+                    ? `${base}q/${gender === "male" ? "m" : "f"}/q5_a${idx + 1}.jpg`
+                    : `${base}q/q${currentQ.id}_a${idx + 1}.jpg`;
 
                   return (
                     <button
@@ -999,7 +1001,7 @@ export default function App() {
               <div className={`toneCard ${resultType}`}>
                 <img
                   className="toneBgImage"
-                  src={`/result/result_${resultType}.jpg`}
+                  src={`${import.meta.env.BASE_URL}result/result_${resultType}.jpg`}
                   alt={`${resultType} result`}
                   loading="eager"
                   decoding="async"
