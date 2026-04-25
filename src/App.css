@@ -1,0 +1,398 @@
+/* ✅ 답변 영역: 2열 카드 */
+.answers {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 6px;
+}
+
+/* ✅ 기본 버튼(공통) */
+.answerBtn {
+  width: 100%;
+  padding: 18px;
+  border-radius: 26px;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  cursor: pointer;
+  transition: transform 0.12s ease, background 0.12s ease;
+  color: inherit;
+}
+
+.answerBtn:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.10);
+}
+
+.answerBtn:active {
+  transform: translateY(0px);
+}
+
+/* ✅ 이미지형 카드: 사진 위 + 글 아래 */
+.answerBtn.answerWithImg {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 12px;
+  text-align: left;
+}
+
+/* ✅ 사진 영역 */
+.answerImgWrap {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  /* 1350x1350이면 정사각이 베스트 */
+  border-radius: 20px;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.55);
+}
+
+/* 이미지 */
+.answerImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ✅ 텍스트 */
+.answerText {
+  width: 100%;
+  writing-mode: horizontal-tb;
+  transform: none;
+  white-space: normal;
+  line-height: 1.25;
+  font-weight: 700;
+  font-size: 18px;
+  /* 너가 말한 지금 크기 유지 */
+}
+
+/* ✅ 텍스트만 있는 카드(10~15용) */
+.answerBtn.answerTextOnly {
+  text-align: center;
+}
+
+/* 모바일: 1열 */
+@media (max-width: 560px) {
+  .answers {
+    grid-template-columns: 1fr;
+  }
+}
+
+.answerWithImg .answerText {
+  text-align: center;
+}
+
+.btn.ghost.bigBtn.youtubeBtn {
+  background: linear-gradient(135deg, #ff4d4d, #ff0000);
+  color: #ffffff;
+  border: none;
+  box-shadow: 0 12px 28px rgba(255, 0, 0, 0.28);
+  transition: all 0.2s ease;
+}
+
+.btn.ghost.bigBtn.youtubeBtn:hover {
+  background: linear-gradient(135deg, #ff3b3b, #e60000);
+  transform: translateY(-2px);
+}
+
+.btn.ghost.bigBtn.youtubeBtn:active {
+  transform: translateY(0);
+  opacity: 0.92;
+}
+
+/* 제품 보러가기 버튼만 블루 계열로 */
+.btn.ghost.bigBtn.productBtn {
+  background: linear-gradient(135deg, #4f7cff, #2fb6ff);
+  color: #ffffff;
+  border: none;
+  box-shadow: 0 12px 28px rgba(79, 124, 255, 0.35);
+  transition: all 0.2s ease;
+}
+
+.btn.ghost.bigBtn.productBtn:hover {
+  background: linear-gradient(135deg, #3f6cff, #1fa6ef);
+  transform: translateY(-2px);
+}
+
+.btn.ghost.bigBtn.productBtn:active {
+  transform: translateY(0);
+  opacity: 0.9;
+}
+
+
+/* ✅ 결과 페이지 버튼 텍스트 스타일 통일 */
+.resultLayout .btn,
+.resultLayout .bigBtn {
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: -0.2px;
+  line-height: 1;
+  font-family: "Pretendard", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Apple SD Gothic Neo",
+    "Noto Sans KR", Arial, sans-serif;
+}
+
+
+/* 퍼스널컬러 자격증 과정 버튼 */
+.btn.ghost.bigBtn.courseBtn {
+  background: linear-gradient(135deg, #3c3f58, #6b70a0);
+  color: #ffffff;
+  border: none;
+  box-shadow: 0 12px 28px rgba(73, 80, 160, 0.35);
+  transition: all 0.2s ease;
+}
+
+.btn.ghost.bigBtn.courseBtn:hover {
+  background: linear-gradient(135deg, #515577, rgb(119, 126, 177));
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+.btn.ghost.courseBtn:active {
+  transform: translateY(0);
+  opacity: 0.9;
+}
+
+/* =========================
+   INTRO SCREEN (첨부 디자인)
+========================= */
+
+.introWrap {
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+}
+
+.introCard {
+  width: min(820px, 100%);
+  background: #f6e6d9;
+  /* 연한 살구 */
+  border-radius: 46px;
+  padding: 42px 52px 46px;
+  box-shadow: 0 18px 60px rgba(0, 0, 0, .30);
+  position: relative;
+}
+
+.introTop {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.introBrand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.introLogo {
+  height: 40px;
+  /*로고크기 변경*/
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.introBrandText {
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  color: rgba(0, 0, 0, .65);
+}
+
+.introTitle {
+  margin: 0;
+  font-size: 40px;
+  line-height: 1.05;
+  letter-spacing: -1px;
+  color: #111;
+  font-weight: 900;
+}
+
+.introDesc {
+  margin: 0;
+  color: rgba(0, 0, 0, .75);
+  line-height: 1.5;
+  font-size: 14px;
+  font-weight: 600;
+  opacity: .85;
+}
+
+.introBars {
+  margin-top: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+}
+
+.introBar {
+  border-radius: 14px;
+  padding: 18px 0;
+  text-align: center;
+  font-weight: 900;
+}
+
+.introBarKo {
+  font-size: 15px;
+  font-weight: 800;
+  margin-bottom: 2px;
+  opacity: .95;
+}
+
+.introBarEn {
+  font-size: 18px;
+  font-weight: 900;
+}
+
+/* 색상 */
+.warmSpring {
+  background: #e52b17;
+  color: #111;
+}
+
+.coolSummer {
+  background: #e8ffbf;
+  color: #111;
+}
+
+.warmAutumn {
+  background: #669e63;
+  color: #111;
+}
+
+.coolWinter {
+  background: #001f63;
+  color: #fff;
+}
+
+.introStartBtn {
+  margin: 34px auto 0;
+  display: block;
+  width: min(400px, 100%);
+  height: 60px;
+  border: none;
+  border-radius: 22px;
+  background: #2f343a;
+  color: #fff;
+  font-size: 25px;
+  font-weight: 900;
+  cursor: pointer;
+  transition:
+    background 0.25s ease,
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.introStartBtn:hover {
+  background: #343a41;
+  opacity: .92;
+  transform: translateY(-2px);
+}
+
+/* 모바일 */
+@media (max-width: 640px) {
+  .introCard {
+    padding: 30px 22px 34px;
+    border-radius: 34px;
+  }
+
+  .introTitle {
+    font-size: 28px;
+    /* 기존 34px → 더 안정적인 크기 */
+    line-height: 1.1;
+    letter-spacing: -0.8px;
+  }
+
+  .introStartBtn {
+    height: 64px;
+    font-size: 22px;
+  }
+}
+
+/* 1) bg 레이어 제거 */
+.page.introOn .bg {
+  display: none !important;
+}
+
+/* 2) 혹시 introCard 자체에 반투명 배경이 있으면 제거/변경 */
+.page.introOn .introCard {
+  background: #f3e6dc;
+  /* 스샷 느낌의 베이지 */
+  border: none;
+  box-shadow: none;
+  backdrop-filter: none;
+}
+
+/* 3) card(바깥)에도 반투명/블러가 들어가면 인트로에서만 해제 */
+.page.introOn .card {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  backdrop-filter: none;
+}
+
+.resultStrong {
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+
+
+/* =========================
+   Gender chips - 더 잘 보이게
+   ========================= */
+.chip {
+  border: 1px solid rgba(255,255,255,0.18);
+  background: rgba(255,255,255,0.06);
+  color: rgba(255,255,255,0.82);
+  transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease, border-color 0.12s ease;
+}
+
+.chip.active {
+  background: rgba(165, 165, 165, 0.562);   /* 더 선명한 포인트 */
+  border-color: rgba(255, 255, 255, 0.466);
+  color: #ffffff;
+  box-shadow: 0 0 0 3px rgba(235, 235, 235, 0.2), 0 10px 22px rgba(0,0,0,0.25);
+  transform: translateY(-1px);
+  font-weight: 700;
+}
+
+.chip:active {
+  transform: translateY(0px) scale(0.99);
+}
+
+
+/* =========================
+   Intro tone boxes - 모바일 크기 축소
+========================= */
+@media (max-width: 420px) {
+
+  .introBar {
+    padding: 10px 0;       /* 기존 18px → 축소 */
+    border-radius: 12px;
+  }
+
+  .introBarKo {
+    font-size: 13px;       /* 기존 15px */
+    margin-bottom: 1px;
+  }
+
+  .introBarEn {
+    font-size: 14px;       /* 기존 18px → 핵심 */
+    font-weight: 800;
+  }
+}
+
+.youtubeBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.ytIcon {
+  font-size: 18px;
+  transform: translateY(1px);
+}
