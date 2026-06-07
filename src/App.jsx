@@ -831,7 +831,7 @@ export default function App() {
 
                   <p className="introDesc">
                     1분 만에 찾는 나의 퍼스널 컬러!<br />
-                    이미 7만명 이상이 자신의 색을 찾았습니다.<br />
+                    이미 10만명 이상이 자신의 색을 찾았습니다.<br />
                     스타일링 팁부터 시그니처 굿즈까지 만나보세요.
                   </p>
                 </div>
