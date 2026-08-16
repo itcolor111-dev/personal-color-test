@@ -760,31 +760,44 @@ export default function App() {
     setScores(recalced);
   }
 
-  async function shareKakaoOrWeb() {
-    const shareData = {
-      title: "나의 퍼스널컬러 찾기",
-      text: "1분 만에 나의 퍼스널컬러를 찾아보세요 🎨",
-      url: "https://itcolor111-dev.github.io/personal-color-test/",
-    };
+  function shareKakaoOrWeb() {
+    const Kakao = window.Kakao;
 
-    if (navigator.share) {
-      try {
-        await navigator.share(shareData);
-        return;
-      } catch (error) {
-        // 사용자가 공유창을 그냥 닫은 경우는 오류 안내 안 함
-        if (error?.name === "AbortError") return;
-        console.error("공유 오류:", error);
-      }
+    if (!Kakao) {
+      alert("카카오 공유 기능을 불러오지 못했습니다.");
+      return;
     }
 
-    // 공유 기능이 없는 PC/브라우저에서는 링크 복사
-    try {
-      await navigator.clipboard.writeText(shareData.url);
-      alert("링크가 복사되었습니다.\n카카오톡에 붙여넣어 공유해 주세요.");
-    } catch (error) {
-      alert("공유 기능을 지원하지 않는 브라우저입니다.");
+    if (!Kakao.isInitialized()) {
+      Kakao.init("9ff20a1696ae4c43eccf9f6d0447fc80");
     }
+
+    Kakao.Share.sendDefault({
+      objectType: "feed",
+      content: {
+        title: "나의 퍼스널컬러 찾기",
+        description: "1분 만에 나의 퍼스널컬러를 찾아보세요 🎨",
+        imageUrl:
+          "https://itcolor111-dev.github.io/personal-color-test/brand/itcolor_logo.png",
+        link: {
+          mobileWebUrl:
+            "https://itcolor111-dev.github.io/personal-color-test/",
+          webUrl:
+            "https://itcolor111-dev.github.io/personal-color-test/",
+        },
+      },
+      buttons: [
+        {
+          title: "퍼스널컬러 테스트하기",
+          link: {
+            mobileWebUrl:
+              "https://itcolor111-dev.github.io/personal-color-test/",
+            webUrl:
+              "https://itcolor111-dev.github.io/personal-color-test/",
+          },
+        },
+      ],
+    });
   }
 
   const view = resultType ? RESULT_VIEW_I18N?.[resultType] : null;
