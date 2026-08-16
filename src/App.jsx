@@ -761,34 +761,28 @@ export default function App() {
   }
 
   function shareKakaoOrWeb() {
-    const Kakao = window.Kakao;
+    const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
 
-    if (!Kakao) {
-      alert("카카오 공유 기능을 불러오지 못했습니다.");
-      return;
-    }
+    // 모바일 → 카카오톡 공유
+    if (isMobile) {
+      const Kakao = window.Kakao;
 
-    if (!Kakao.isInitialized()) {
-      Kakao.init("9ff20a1696ae4c43eccf9f6d0447fc80");
-    }
+      if (!Kakao) {
+        alert("카카오 공유 기능을 불러오지 못했습니다.");
+        return;
+      }
 
-    Kakao.Share.sendDefault({
-      objectType: "feed",
-      content: {
-        title: "나의 퍼스널컬러 찾기",
-        description: "1분 만에 나의 퍼스널컬러를 찾아보세요 🎨",
-        imageUrl:
-          "https://itcolor111-dev.github.io/personal-color-test/brand/itcolor_logo.png",
-        link: {
-          mobileWebUrl:
-            "https://itcolor111-dev.github.io/personal-color-test/",
-          webUrl:
-            "https://itcolor111-dev.github.io/personal-color-test/",
-        },
-      },
-      buttons: [
-        {
-          title: "퍼스널컬러 테스트하기",
+      if (!Kakao.isInitialized()) {
+        Kakao.init("네 JavaScript 키");
+      }
+
+      Kakao.Share.sendDefault({
+        objectType: "feed",
+        content: {
+          title: "나의 퍼스널컬러 찾기",
+          description: "1분 만에 나의 퍼스널컬러를 찾아보세요 🎨",
+          imageUrl:
+            "https://itcolor111-dev.github.io/personal-color-test/brand/itcolor_logo.png",
           link: {
             mobileWebUrl:
               "https://itcolor111-dev.github.io/personal-color-test/",
@@ -796,8 +790,28 @@ export default function App() {
               "https://itcolor111-dev.github.io/personal-color-test/",
           },
         },
-      ],
-    });
+        buttons: [
+          {
+            title: "퍼스널컬러 테스트하기",
+            link: {
+              mobileWebUrl:
+                "https://itcolor111-dev.github.io/personal-color-test/",
+              webUrl:
+                "https://itcolor111-dev.github.io/personal-color-test/",
+            },
+          },
+        ],
+      });
+
+      return;
+    }
+
+    // PC → 링크 복사
+    navigator.clipboard
+      .writeText("https://itcolor111-dev.github.io/personal-color-test/")
+      .then(() => {
+        alert("테스트 링크가 복사되었습니다.\n카카오톡 PC에 붙여넣어 주세요.");
+      });
   }
 
   const view = resultType ? RESULT_VIEW_I18N?.[resultType] : null;
