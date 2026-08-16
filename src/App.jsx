@@ -761,31 +761,29 @@ export default function App() {
   }
 
   async function shareKakaoOrWeb() {
-    if (!resultType) return;
-    const view = RESULT_VIEW_I18N?.[resultType];
-    if (!view) return;
-
-    const shareText =
-      lang === "ko"
-        ? `내 퍼스널컬러 결과: ${view.title.ko} (${view.card.ko})`
-        : `My personal color result: ${view.title[lang]} (${view.card[lang]})`;
+    const shareData = {
+      title: "나의 퍼스널컬러 찾기",
+      text: "1분 만에 나의 퍼스널컬러를 찾아보세요 🎨",
+      url: "https://itcolor111-dev.github.io/personal-color-test/",
+    };
 
     if (navigator.share) {
       try {
-        await navigator.share({
-          title: "Personal Color Result",
-          text: shareText,
-          url: window.location.href,
-        });
+        await navigator.share(shareData);
         return;
-      } catch (_) { }
+      } catch (error) {
+        // 사용자가 공유창을 그냥 닫은 경우는 오류 안내 안 함
+        if (error?.name === "AbortError") return;
+        console.error("공유 오류:", error);
+      }
     }
 
+    // 공유 기능이 없는 PC/브라우저에서는 링크 복사
     try {
-      await navigator.clipboard.writeText(`${shareText}\n${window.location.href}`);
-      alert(lang === "ko" ? "공유 문구가 클립보드에 복사됐어요!" : "Copied to clipboard!");
-    } catch (e) {
-      alert(lang === "ko" ? "공유를 지원하지 않는 환경이에요." : "Sharing is not supported here.");
+      await navigator.clipboard.writeText(shareData.url);
+      alert("링크가 복사되었습니다.\n카카오톡에 붙여넣어 공유해 주세요.");
+    } catch (error) {
+      alert("공유 기능을 지원하지 않는 브라우저입니다.");
     }
   }
 
