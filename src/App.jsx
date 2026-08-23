@@ -1091,12 +1091,11 @@ export default function App() {
 
               <a
                 className="btn ghost bigBtn youtubeBtn"
-                href="https://youtube.com/@colorboratorys?si=YI0caDRkIJ5gtiJ5"
+                href={CONFIG.INNER_TEST_URL}
                 target="_blank"
                 rel="noreferrer"
               >
-                <span className="ytIcon">▶</span>
-                컬러보레이터 이윤설 유튜브채널
+                {rt.innerTestBtn}
               </a>
 
               <a
