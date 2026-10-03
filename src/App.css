@@ -396,3 +396,9 @@
   font-size: 18px;
   transform: translateY(1px);
 }
+
+/* 국가/직업/나이 드롭다운 펼쳤을 때 목록 글씨 */
+.select option {
+  color: #222222;
+  background-color: #ffffff;
+}
