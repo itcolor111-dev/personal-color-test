@@ -4,7 +4,16 @@ import "./App.css";
 
 import questionsFemale from "./data/questions_female";
 import questionsMale from "./data/questions_male";
-import { AGE_OPTIONS, CONFIG, JOB_OPTIONS, LANGS, UI, RESULT_PAGE, RESULT_VIEW_I18N } from "./data/meta";
+import {
+  AGE_OPTIONS,
+  CONFIG,
+  COUNTRY_OPTIONS,
+  JOB_OPTIONS,
+  LANGS,
+  UI,
+  RESULT_PAGE,
+  RESULT_VIEW_I18N,
+} from "./data/meta";
 
 
 function buildAnswersText(answersMap, qMap, lang) {
@@ -453,6 +462,7 @@ export default function App() {
   const [gender, setGender] = useState(null); // "female" | "male"
   const [age, setAge] = useState("");
   const [job, setJob] = useState("");
+  const [country, setCountry] = useState("");
 
   // 진행
   const [started, setStarted] = useState(false);
@@ -527,7 +537,11 @@ export default function App() {
   const t = UI[lang];
   const rt = RESULT_PAGE[lang];
   const isValidPick = (v) => v && v !== "-" && v !== "—";
-  const canStart = !!gender && isValidPick(age) && isValidPick(job);
+  const canStart =
+    !!gender &&
+    isValidPick(age) &&
+    isValidPick(job) &&
+    isValidPick(country);
 
 
   const total = 15;
@@ -675,6 +689,7 @@ export default function App() {
           gender,
           age,
           job,
+          country,
 
           // 원본 데이터
           answers: nextAnswers,
@@ -721,6 +736,7 @@ export default function App() {
       gender,
       age,
       job,
+      country,
       answers,
       scores,
       resultType,
@@ -953,6 +969,23 @@ export default function App() {
                   <select className="select" value={job} onChange={(e) => setJob(e.target.value)}>
                     <option value="">-</option>
                     {JOB_OPTIONS[lang].map((v) => (
+                      <option key={v} value={v}>
+                        {v}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+                <div className="block">
+                  <div className="blockTitle">{t.country}</div>
+
+                  <select
+                    className="select"
+                    value={country}
+                    onChange={(e) => setCountry(e.target.value)}
+                  >
+                    <option value="">-</option>
+
+                    {COUNTRY_OPTIONS[lang].map((v) => (
                       <option key={v} value={v}>
                         {v}
                       </option>
