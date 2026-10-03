@@ -32,7 +32,7 @@ export const JOB_OPTIONS = {
 export const UI = {
     ko: {
         title: "잇컬러 퍼스널컬러 자가진단",
-        sub: "1분 만에 찾는 나의 퍼스널 컬러! 이미 16만 명 이상이 자신의 색을 찾았습니다.\n스타일링 팁부터 시그니처 굿즈까지 만나보세요.",
+        sub: "1분 만에 찾는 나의 퍼스널 컬러! 이미 17만 명 이상이 자신의 색을 찾았습니다.\n스타일링 팁부터 시그니처 굿즈까지 만나보세요.",
         lang: "언어",
         gender: "성별 선택",
         female: "여성",
@@ -48,7 +48,7 @@ export const UI = {
     },
     en: {
         title: "ITCOLOR Personal Color Assessment",
-        sub: "Discover your personal color in just 1 minute.\nOver 160,000 people have already discovered their colors.\nFrom styling tips to signature goods that capture your unique color.",
+        sub: "Discover your personal color in just 1 minute.\nOver 170,000 people have already discovered their colors.\nFrom styling tips to signature goods that capture your unique color.",
         lang: "Language",
         gender: "Gender",
         female: "Female",
@@ -64,7 +64,7 @@ export const UI = {
     },
     ja: {
         title: "ITCOLOR パーソナルカラー自己診断",
-        sub: "たった1分で見つかる、あなたのパーソナルカラー。\nすでに16万人以上が自分の色を見つけています。\nスタイリングのヒントから、あなたの色を形にしたシグネチャーグッズまで。",
+        sub: "たった1分で見つかる、あなたのパーソナルカラー。\nすでに17万人以上が自分の色を見つけています。\nスタイリングのヒントから、あなたの色を形にしたシグネチャーグッズまで。",
         lang: "言語",
         gender: "性別",
         female: "女性",
@@ -80,7 +80,7 @@ export const UI = {
     },
     zh: {
         title: "ITCOLOR 个人色彩诊断",
-        sub: "只需1分钟，找到属于你的个人色彩。\n已有超过16万人找到了属于自己的色彩。\n从造型建议到承载你专属色彩的标志性产品。",
+        sub: "只需1分钟，找到属于你的个人色彩。\n已有超过17万人找到了属于自己的色彩。\n从造型建议到承载你专属色彩的标志性产品。",
         lang: "语言",
         gender: "性别",
         female: "女性",
